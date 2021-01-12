@@ -1,6 +1,7 @@
 @if (count($microposts) > 0)
     <ul class="list-unstyled">
         @foreach ($microposts as $micropost)
+        
             <li class="media mb-3">
                 {{-- 投稿の所有者のメールアドレスをもとにGravatarを取得して表示 --}}
                 <img class="mr-2 rounded" src="{{ Gravatar::get($micropost->user->email, ['size' => 50]) }}" alt="">
@@ -31,6 +32,4 @@
             </li>
         @endforeach
     </ul>
-    {{-- ページネーションのリンク --}}
-    {{ $microposts->links() }}
 @endif
